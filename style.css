@@ -285,6 +285,7 @@ body{
 .complete-btn,.delete-btn{
     border: none;
     background-color: var(--transparent-background);
+    backdrop-filter: blur(1rem);
     outline: none;
     padding: 1rem;
     cursor: pointer;
@@ -340,6 +341,7 @@ body{
   
     text-align: center;
     background-color: var(--transparent-background);
+    backdrop-filter: blur(1rem);
     padding: 2px;
     border-radius: 20px;
 }
@@ -362,6 +364,7 @@ body{
 
 .twitter-icon,.github-icon{
     color: var(--transparent-background);
+    backdrop-filter: blur(2rem);
     transition: transform 2s ease;
 }
 
