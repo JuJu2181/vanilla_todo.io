@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font Awesome CSS-->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' integrity='sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==' crossorigin='anonymous'/>
+    <!--Our Own Css-->
+    <link rel="stylesheet" href="style.css">
+    <title>TODO APP</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="todo-wrapper">
+            <h1 class="title">Vanilla JS Todo</h1>
+
+                <div class="select-list">
+                    <div class="select-wrapper">
+                    <select name="todos" class="category-select">
+                        <option value="all">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                    </div>
+                    <button class="clear-btn">Clear All <span><i class="fas fa-trash"></i></span> </button>
+                </div>    
+
+            <form id="todo-form">
+                <div>
+                    <input type="text" class="todo-add-input" 
+                    id="todo-input" placeholder="Add A New Todo ...">
+                    <button class="todo-form-button" id="create-button" type="submit"><span><i class="fas fa-plus"></i></span></button>
+                 </div>
+            </form>
+            <h1 class="title" id="todo-list-title">Todo List</h1>
+            
+            <ul class="todo-list"></ul>
+         
+        </div>
+        
+    </div>
+</body>
+<script src="app.js"></script>
+</html>

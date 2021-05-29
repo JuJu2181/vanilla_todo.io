@@ -1,0 +1,439 @@
+/* nunito font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+/* varaibles */
+:root{
+    --transparent-background: rgba(255, 255, 255, 0.3);
+    --body-background: linear-gradient(120deg,#68ff5b 0%,#096d79 100%);
+    --text-dark-color: #45454596;
+    --text-color: #ffffee;
+    --box-shadow:  -0.5px -0.5px 10px #99f3c2,
+    0.5px 0.5px 10px #0a0a0a;
+    
+}
+/* Resetting defaults */
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* custom scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 0.3rem;
+}
+
+
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background:var(--transparent-background); 
+    border-radius: 20px;
+    
+}
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--transparent-background); 
+    border-radius: 20px;
+    /* box-shadow: 1px 1px 10px rgb(42, 167, 42); */
+}
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color); 
+}
+
+/* main css */
+
+body{
+    background-image: var(--body-background);
+    font-family: "Nunito",sans-serif;
+    min-height: 100vh;
+    color: var(--text-color);
+}
+
+.wrapper{
+    display: flex;
+    /* padding: 3rem ; */
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-wrapper{
+    border-radius: 2rem;
+    background-color: var(--transparent-background);
+    backdrop-filter: blur(1rem);
+    margin: 5rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    max-width: 80vw;
+    max-height: 80vh;
+    transition: all 1s ease;
+    /* flex-wrap: wrap; */
+}
+
+.todo-wrapper:hover{
+    box-shadow: var(--box-shadow);
+}
+
+
+.title{
+    text-transform: uppercase;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.title::after{
+    display: block;
+    content: '';
+    width: 50%;
+    height: 0.3rem;
+    border-radius: 20px;
+
+    border: 2px solid var(--transparent-background) ;
+    margin: 5px auto;
+}
+
+
+
+.todo-wrapper .title{
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.todo-wrapper form{
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+}
+
+.todo-wrapper form div{
+    display: flex;
+    background-color: var(--transparent-background);
+    backdrop-filter: blur(2rem);
+    border-radius: 20px;
+    padding: 0.8rem;
+    transition: all 2s ease;
+}
+
+.todo-wrapper form div:focus-within{
+    box-shadow: var(--box-shadow);
+}
+
+.todo-add-input,.todo-form-button{
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.todo-add-input{
+    width: 100%;
+    transition: box-shadow 2s ease;
+    color: var(--text-dark-color);
+}
+
+.todo-form-button{
+    cursor: pointer;
+    padding: 0 5px;
+    color: var(--text-color);
+    border-left: 2px solid var(--transparent-background);
+    border-right: 2px solid var(--transparent-background);
+    transition: transform 1s ease;
+}
+
+.todo-form-button:hover{
+    transform: rotate(180deg);
+    cursor: pointer;
+    color: var(--text-dark-color);
+}
+
+.select-list{
+    display: flex;
+    align-items: center;
+}
+
+.clear-btn{
+    border: none;
+    outline: none;
+    appearance: none;
+    margin-left: 10px;
+    border-radius: 20px;
+    padding: 1rem;
+    text-transform: uppercase;
+    color: var(--text-dark-color);
+    background-color: var(--transparent-background);
+    backdrop-filter: blur(2rem);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.5s ease-out;
+}
+
+.clear-btn:hover{
+    background-color: #ff7575;
+    color: var(--text-color);
+    box-shadow: var(--box-shadow);
+}
+
+.select-wrapper{
+    position: relative;
+    /* margin-left: 5px; */
+    border-radius: 20px;
+    padding: 0.8rem;
+    background-color: var(--transparent-background);
+    backdrop-filter: blur(2rem);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+}
+
+.select-wrapper:active{
+    box-shadow: var(--box-shadow);
+}
+
+.select-wrapper::after{
+    content: "\25BC";
+    color: var(--text-dark-color);
+    position: absolute;
+    bottom: 50;
+    right: 0;
+    padding: 0.8rem;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.category-select{
+    appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+    font-size: 1.3rem;
+    color: var(--text-dark-color);
+    width: 10rem;
+}
+
+
+
+
+.category-select option{
+    font-size: 0.8rem;
+    background-color: var(--text-dark-color);
+    color: var(--text-color);
+    width: 100%;
+}
+
+/* for todo container */
+.todo-list{
+    max-width: 60vw;
+    min-width: 40%;
+    list-style-type: none;
+    /* overflow-y: scroll; */
+    overflow-y: auto;
+    /* for changing direction of scrollbar */
+    direction: rtl;
+}
+
+
+
+.todo{
+    background-color: var(--transparent-background);
+    backdrop-filter: blur(1rem);
+    color: var(--text-dark-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 0.8rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    max-width: 80vw;
+    transition: all 3s ease;
+    /* to change direction of scrollbar */
+    direction: ltr;
+    
+}
+
+.todo:hover{
+    box-shadow: var(--box-shadow);
+}
+
+.todo li{
+    flex: 1;
+    overflow-x: hidden;
+    word-wrap: break-word;
+
+}
+
+.todo-item{
+    padding: 0rem 0.5rem;
+    
+}
+
+.complete-btn,.delete-btn{
+    border: none;
+    background-color: var(--transparent-background);
+    outline: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 5px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in;
+}
+
+.complete-btn{
+    color: #04a50c;
+}
+
+.delete-btn{
+    color:#d30101;
+}
+
+.complete-btn:hover{
+    background-color: #68ff5b;
+    color: white;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.delete-btn:hover{
+    background-color: #ff4242;
+    color: white;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+/* using this property so that the button will work even when clicking in i tag */
+.fa-check,.fa-trash{
+    pointer-events: none;
+}
+
+/* for animation when delete button is pressed */
+.delete-animation{
+    background-color: rgb(255, 115, 115)!important;
+    transform: translateX(10rem);
+    opacity:0;
+}
+/* animation when complete button is pressed */
+.complete-animation{
+    background-color: rgb(126, 255, 126);
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+/* for time */
+.created-time{
+    font-size: 0.7rem;
+    font-style: oblique;
+  
+    text-align: center;
+    background-color: var(--transparent-background);
+    padding: 2px;
+    border-radius: 20px;
+}
+
+/* for default text */
+.empty-text{
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    transition: all 1s ease;
+}
+
+
+/* media queries for smaller devices */
+@media(max-width: 620px){
+    .todo-wrapper form{
+        min-height: 20vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 10vh;
+        margin: 10px;
+    }
+    .select-wrapper{
+        /* margin-top: 10px; */
+        transition: all 0.1s ease-out;
+        min-height: 8vh;
+        /* padding: 0.8rem; */
+    }
+
+    .select-wrapper::after{
+        font-size: small;
+        /* top: 20%; */
+    }
+
+    .select-wrapper .category-select{
+        font-size: 0.8rem;
+        width: 6rem;
+        height: 6vh;
+    }
+
+    .clear-btn{
+        padding: 0.8rem;
+        font-size: 0.8rem;
+        min-height: 8vh;
+    }
+
+    .title{
+        font-size: 1.5rem;
+    }
+
+    .todo-add-input,.todo-form-button{
+        font-size: 1rem;
+        
+    }
+
+    .complete-btn,.delete-btn{
+        padding: 0.5rem;
+    }
+
+    .empty-text{
+        font-size: 0.8rem;
+    }
+}
+
+
+@media(max-width:360px){
+
+    .select-wrapper{
+        /* margin-top: 10px; */
+        transition: all 0.1s ease-out;
+        min-height: 8vh;
+        padding: 0.6rem;
+    }
+    
+    .select-wrapper .category-select{
+        font-size: 0.6rem;
+        width: 6rem;
+        min-height: 6vh;
+    }
+    
+    .title{
+        font-size: 1rem;
+    }
+
+    .empty-text{
+        font-size: 0.6rem;;
+    }
+
+    .todo-add-input,.todo-form-button{
+        font-size: 0.8rem;
+    }
+
+    .clear-btn{
+        padding: 0.8rem;
+        font-size: 0.6rem;
+        min-height: 8vh;
+    }
+}
