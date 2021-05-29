@@ -4,7 +4,7 @@
 /* varaibles */
 :root{
     --transparent-background: rgba(255, 255, 255, 0.3);
-    --body-background: linear-gradient(120deg,#68ff5b 0%,#096d79 100%);
+    --body-background: linear-gradient(to bottom right,#68ff5b,#096d79 );
     --text-dark-color: #45454596;
     --text-color: #ffffee;
     --box-shadow:  -0.5px -0.5px 10px #99f3c2,
@@ -49,6 +49,7 @@
 
 body{
     background-image: var(--body-background);
+    background-repeat: no-repeat;
     font-family: "Nunito",sans-serif;
     min-height: 100vh;
     color: var(--text-color);
@@ -59,13 +60,14 @@ body{
     /* padding: 3rem ; */
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .todo-wrapper{
     border-radius: 2rem;
     background-color: var(--transparent-background);
     backdrop-filter: blur(1rem);
-    margin: 5rem;
+    margin: 3rem;
     padding: 2rem;
     display: flex;
     justify-content: flex-start;
@@ -350,16 +352,38 @@ body{
     transition: all 1s ease;
 }
 
+/* social icons */
+.social-icons{
+    display: flex;
+    max-width: 80vw;
+    min-width: 20vw;
+    justify-content: space-around;
+}
+
+.twitter-icon,.github-icon{
+    color: var(--transparent-background);
+    transition: transform 2s ease;
+}
+
+.twitter-icon:hover,.github-icon:hover{
+    color: var(--text-color);
+    transform: rotate(360deg) scale(1.1);
+
+}
 
 /* media queries for smaller devices */
-@media(max-width: 620px){
+@media(max-width: 640px){
+    .tod-wrapper{
+        max-height: 75vh;
+        /* margin-top: 5px; */
+    }
     .todo-wrapper form{
-        min-height: 20vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         min-height: 10vh;
-        margin: 10px;
+        margin: 5px;
+        max-height: 80vh;
     }
     .select-wrapper{
         /* margin-top: 10px; */
@@ -405,6 +429,10 @@ body{
 
 
 @media(max-width:360px){
+
+    .todo-wrapper{
+        max-height: 70vh;
+    }
 
     .select-wrapper{
         /* margin-top: 10px; */
